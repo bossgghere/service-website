@@ -35,7 +35,7 @@ const App: React.FC = () => {
                   <img 
                     src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1200" 
                     alt="Infrastructure" 
-                    className="absolute inset-0 w-full h-full object-cover grayscale transition-transform duration-[2000ms] lg:group-hover:scale-110"
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-[2000ms] lg:group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-black/10 mix-blend-overlay"></div>
                 </div>
@@ -116,7 +116,7 @@ const App: React.FC = () => {
                                     <div key={i} className="min-w-full h-full relative">
                                         <img 
                                             src={img} 
-                                            className="w-full h-full object-cover grayscale brightness-75 hover:brightness-100 transition-all duration-1000" 
+                                            className="w-full h-full object-cover hover:brightness-100 transition-all duration-1000" 
                                             alt={`Backbone View ${i}`} 
                                         />
                                         <div className="absolute top-8 left-8 flex gap-3">
@@ -160,7 +160,7 @@ const App: React.FC = () => {
                     { title: "Cloud Architecture", desc: "Secure and scalable cloud-native infrastructure.", img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=2000" }
                   ].map((service, i) => (
                     <div key={i} className="group relative bg-black h-[500px] sm:h-[600px] overflow-hidden">
-                      <img src={service.img} className="absolute inset-0 w-full h-full object-cover grayscale brightness-[0.3] group-hover:scale-110 transition-transform duration-[2000ms]" alt={service.title} />
+                      <img src={service.img} className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-[2000ms]" alt={service.title} />
                       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent opacity-90"></div>
                       <div className="relative z-10 p-12 flex flex-col h-full text-white">
                         <span className="text-[10px] font-black tracking-widest text-neutral-500 mb-6 block uppercase">Module {i+1}</span>

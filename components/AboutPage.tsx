@@ -98,7 +98,7 @@ const AboutPage: React.FC = () => {
               </div>
             </div>
             <div className="aspect-square bg-neutral-900 border border-white/10 p-4">
-               <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200" alt="Goals" className="w-full h-full object-cover grayscale brightness-50" />
+               <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200" alt="Goals" className="w-full h-full object-cover" />
             </div>
           </div>
         </div>

@@ -53,7 +53,7 @@ const ModularSystems: React.FC = () => {
               </div>
 
               {/* Module Image */}
-              <div className="relative h-48 overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-700">
+              <div className="relative h-48 overflow-hidden transition-all duration-700">
                 <img src={sys.image} alt={sys.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" />
                 <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
               </div>

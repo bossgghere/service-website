@@ -22,7 +22,7 @@ const DiagonalSection: React.FC<Props> = ({
         <img 
           src={bgImage} 
           alt=""
-          className="w-full h-full object-cover grayscale brightness-[0.35] transition-transform duration-[10000ms] ease-out group-hover:scale-110"
+          className="w-full h-full object-cover transition-transform duration-[10000ms] ease-out group-hover:scale-110"
         />
         {/* Dark Overlay */}
         <div className="absolute inset-0 bg-black/60 mix-blend-multiply pointer-events-none"></div>

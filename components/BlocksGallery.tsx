@@ -23,7 +23,7 @@ const BlocksGallery: React.FC = () => {
                 <span className="text-[9px] font-black text-neutral-500">{block.id}</span>
                 <span className="text-[9px] font-black text-white/40 tracking-widest">{block.category}</span>
               </div>
-              <div className="aspect-square overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-700">
+              <div className="aspect-square overflow-hidden transition-all duration-700">
                 <img src={block.img} alt={block.name} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
               </div>
               <div className="p-8 bg-neutral-900/80 backdrop-blur-sm">

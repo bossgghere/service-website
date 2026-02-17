@@ -24,7 +24,7 @@ const FeatureGrid: React.FC = () => {
             <img 
               src={feature.image} 
               alt={feature.title} 
-              className="absolute inset-0 w-full h-full object-cover grayscale brightness-75 transition-transform duration-[2000ms] group-hover:scale-110"
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-110"
             />
           </div>
           <div className="lg:w-1/2 p-12 md:p-24 lg:p-32 flex flex-col justify-center bg-neutral-950">
