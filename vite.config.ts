@@ -4,7 +4,10 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');
+    // Use base for production if deployed to a subpath (e.g. GitHub Pages: set VITE_BASE_PATH=/repo-name/)
+    const base = env.VITE_BASE_PATH ?? '/';
     return {
+      base,
       server: {
         port: 3000,
         host: '0.0.0.0',
@@ -16,8 +19,9 @@ export default defineConfig(({ mode }) => {
       },
       resolve: {
         alias: {
-          '@': path.resolve(__dirname, '.'),
+          '@': path.resolve(__dirname, 'src'),
         }
-      }
+      },
+      root: '.',
     };
 });
