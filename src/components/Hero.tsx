@@ -60,12 +60,12 @@ const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
       </div>
 
       {/* Right Column: Featured Image & Content Overlay */}
-      <div className="relative min-h-[40vh] h-[50vh] lg:h-full group overflow-hidden bg-neutral-900">
+      <div className="relative min-h-[45vh] h-[55vh] sm:h-[60vh] lg:h-full group overflow-hidden bg-neutral-900">
         {heroImageUrl ? (
           <img 
             src={heroImageUrl}
             alt="Data center infrastructure" 
-            className="absolute inset-0 w-full h-full object-cover brightness-[0.55] transition-all duration-[15s] group-hover:scale-110 group-hover:brightness-[0.65]"
+            className="absolute inset-0 w-full h-full object-cover brightness-[0.55] transition-all duration-[15s] group-hover:scale-110 group-hover:brightness-[0.65] will-change-transform"
             referrerPolicy="no-referrer"
             loading="eager"
           />
@@ -75,7 +75,7 @@ const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
         {/* Animated Blue Accent Light */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-[#2176ff]/10 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-1000 pointer-events-none"></div>
 
-        <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-12 md:p-24">
+        <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-10 md:p-16 lg:p-24">
           <div className={`max-w-md transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <h2 className="text-3xl sm:text-4xl md:text-6xl font-black text-white uppercase tracking-tighter leading-[0.9] mb-6 sm:mb-8">
               Strategic <br /> Infrastructure.

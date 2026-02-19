@@ -60,7 +60,7 @@ const IndustriesPage: React.FC = () => {
           <span className="text-[10px] font-black tracking-[0.5em] text-[#2176ff] uppercase mb-6 sm:mb-8 block">
             Industries
           </span>
-          <h1 className="text-4xl sm:text-5xl md:text-8xl font-black uppercase tracking-tighter leading-[0.9] mb-6 sm:mb-8">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black uppercase tracking-tighter leading-[0.9] mb-6 sm:mb-8">
             Sectors we serve
           </h1>
           <p className="text-lg sm:text-xl md:text-2xl font-light text-neutral-300 max-w-2xl leading-relaxed">
@@ -84,6 +84,7 @@ const IndustriesPage: React.FC = () => {
                     src={industry.image}
                     alt={industry.title}
                     className="w-full h-full object-cover"
+                    loading="lazy"
                   />
                 </div>
               </div>

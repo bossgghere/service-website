@@ -47,7 +47,7 @@ const AboutPage: React.FC = () => {
         <div className="absolute inset-0 wireframe-bg opacity-10 pointer-events-none"></div>
         <div className="max-w-7xl mx-auto relative z-10 min-w-0">
           <span className="text-[10px] font-black tracking-[0.5em] text-[#2176ff] uppercase mb-6 sm:mb-8 block">ESTABLISHED_STANDARD</span>
-          <h1 className="text-4xl sm:text-6xl md:text-9xl font-black uppercase tracking-tighter leading-[0.85] mb-8 sm:mb-12">
+          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black uppercase tracking-tighter leading-[0.85] mb-8 sm:mb-12">
             ABOUT <br /> THE MISSION.
           </h1>
           <p className="text-lg sm:text-xl md:text-3xl font-light text-neutral-400 max-w-3xl leading-tight">
@@ -109,8 +109,8 @@ const AboutPage: React.FC = () => {
                  <div className="w-4 h-1 bg-white/20"></div>
               </div>
             </div>
-            <div className="aspect-square bg-neutral-900 border border-white/10 p-4">
-               <img src={getMergedImages().about.goals} alt="Team and goals" className="w-full h-full object-cover" />
+            <div className="aspect-video lg:aspect-square bg-neutral-900 border border-white/10 p-4">
+               <img src={getMergedImages().about.goals} alt="Team and goals" className="w-full h-full object-cover" loading="lazy" />
             </div>
           </div>
         </div>

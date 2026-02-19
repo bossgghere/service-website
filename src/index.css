@@ -34,23 +34,29 @@
   animation-fill-mode: forwards;
 }
 
-.fade-in {
+/* Scoped to .animate-in to avoid overriding Tailwind's transition-duration utilities */
+.animate-in.fade-in {
   animation-name: fade-in;
 }
 
-.duration-300 {
-  animation-duration: 300ms;
-}
-
-.duration-700 {
-  animation-duration: 700ms;
-}
-
-.slide-in-from-top {
+.animate-in.slide-in-from-top {
   animation-name: slide-in-from-top;
 }
 
-.slide-in-from-top-2 {
+.animate-in.slide-in-from-top-2 {
+  animation-name: slide-in-from-top-2;
+}
+
+/* Keep standalone versions for backward compat */
+.fade-in:not(.animate-in) {
+  animation-name: fade-in;
+}
+
+.slide-in-from-top:not(.animate-in) {
+  animation-name: slide-in-from-top;
+}
+
+.slide-in-from-top-2:not(.animate-in) {
   animation-name: slide-in-from-top-2;
 }
 

@@ -33,7 +33,7 @@ const DiagonalSection: React.FC<Props> = ({
       {/* Content Container */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 md:px-12 w-full min-w-0">
         <div className={`max-w-2xl ${isDark ? 'text-white' : 'text-black'}`}>
-          <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black uppercase mb-6 sm:mb-10 leading-[0.9] tracking-tighter">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black uppercase mb-6 sm:mb-10 leading-[0.9] tracking-tighter">
             {title}
           </h2>
           

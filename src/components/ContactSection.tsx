@@ -48,7 +48,7 @@ const ContactSection: React.FC = () => {
             <span className="text-[9px] sm:text-[10px] font-black tracking-[0.4em] sm:tracking-[0.5em] text-[#2176ff] uppercase mb-4 sm:mb-6 block">
               Global Connection
             </span>
-            <h2 className="text-4xl sm:text-6xl md:text-8xl font-black uppercase tracking-tighter leading-[0.85] mb-6 sm:mb-8">
+            <h2 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-[0.85] mb-6 sm:mb-8">
               Let's build <br />
               <span className="text-neutral-300">the future.</span>
             </h2>

@@ -30,13 +30,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --brand-blue: #2176ff;
-        }
-
+        :root { --brand-blue: #2176ff; }
         html {
             overflow-x: hidden;
             -webkit-text-size-adjust: 100%;
+            scroll-padding-top: 80px;
         }
         body {
             font-family: 'Inter', sans-serif;
@@ -47,55 +45,39 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             min-width: 0;
+            touch-action: pan-x pan-y pinch-zoom;
         }
-        img {
-            max-width: 100%;
-            height: auto;
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
         }
-
-        /* High-Fidelity Technical Typography */
+        img { max-width: 100%; height: auto; }
         h1, h2, h3, h4, h5, h6 {
             letter-spacing: -0.06em;
             line-height: 0.85;
             text-transform: uppercase;
             font-weight: 900;
         }
-
-        .tracking-ultra {
-            letter-spacing: 0.6em;
-        }
-
-        /* Glassmorphism Refinement */
+        .tracking-ultra { letter-spacing: 0.6em; }
         .glass-header {
             background: rgba(255, 255, 255, 0.75);
             backdrop-filter: blur(16px) saturate(180%);
             -webkit-backdrop-filter: blur(16px) saturate(180%);
         }
-
         .wireframe-bg {
-            background-image: 
+            background-image:
                 linear-gradient(to right, rgba(0,0,0,0.03) 1px, transparent 1px),
                 linear-gradient(to bottom, rgba(0,0,0,0.03) 1px, transparent 1px);
             background-size: 80px 80px;
         }
-
-        /* Custom scrollbar - Minimalist */
-        ::-webkit-scrollbar {
-            width: 3px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #fff;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #000;
-            border-radius: 0;
-        }
-
-        /* Selection styles */
-        ::selection {
-            background: #2176ff;
-            color: white;
-        }
+        ::-webkit-scrollbar { width: 3px; }
+        ::-webkit-scrollbar-track { background: #fff; }
+        ::-webkit-scrollbar-thumb { background: #000; border-radius: 0; }
+        ::selection { background: #2176ff; color: white; }
     </style>
 <script type="importmap">
 {

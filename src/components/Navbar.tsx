@@ -25,19 +25,24 @@ const Navbar: React.FC = () => {
 
   useEffect(() => {
     if (!NAVBAR_MEDIA) return;
-    const handler = () => setIsDesktop(NAVBAR_MEDIA.matches);
+    const handler = () => {
+      const nowDesktop = NAVBAR_MEDIA.matches;
+      setIsDesktop(nowDesktop);
+      if (nowDesktop) setIsMobileMenuOpen(false); // close menu when resizing to desktop so scroll is never stuck
+    };
     NAVBAR_MEDIA.addEventListener('change', handler);
     return () => NAVBAR_MEDIA.removeEventListener('change', handler);
   }, []);
 
+  // Only lock body scroll when mobile menu is open on small screens (never on desktop)
   useEffect(() => {
-    if (isMobileMenuOpen) {
+    if (isMobileMenuOpen && !isDesktop) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = '';
     }
     return () => { document.body.style.overflow = ''; };
-  }, [isMobileMenuOpen]);
+  }, [isMobileMenuOpen, isDesktop]);
 
   const scrollToSection = (id: string) => {
     setIsMobileMenuOpen(false);
@@ -59,14 +64,14 @@ const Navbar: React.FC = () => {
 
   return (
     <nav
-      className={`fixed left-0 right-0 top-0 z-[100] w-full transition-[padding,background] duration-300 ease-out ${
+      className={`fixed left-0 right-0 top-0 z-[100] w-full transition-[padding,background] duration-300 ease-out will-change-[padding] ${
         isScrolled ? 'bg-transparent pt-4 px-4 sm:pt-5 sm:px-6' : 'bg-white pt-0 px-0'
       }`}
     >
       <div
         className={`relative mx-auto flex flex-col md:flex-row md:items-center transition-all duration-300 ease-out ${
           isScrolled
-            ? `min-h-12 rounded-full bg-white/95 shadow-[0_4px_24px_-4px_rgba(0,0,0,0.08)] backdrop-blur-xl border border-neutral-200 px-4 sm:px-6 ${isMobileMenuOpen ? 'w-full max-w-full rounded-none rounded-t-none' : 'max-w-lg'}`
+            ? `min-h-12 rounded-full bg-white/95 shadow-[0_4px_24px_-4px_rgba(0,0,0,0.08)] backdrop-blur-xl border border-neutral-200 px-4 sm:px-6 ${isMobileMenuOpen ? 'w-full max-w-full rounded-none rounded-t-none' : 'max-w-lg md:max-w-xl lg:max-w-2xl'}`
             : 'min-h-16 sm:min-h-20 w-full max-w-full rounded-none border-b border-neutral-200 bg-white px-4 sm:px-6 lg:px-8'
         }`}
       >

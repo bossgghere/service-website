@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { getMergedImages } from '../content/siteImages';
 import Hero from '../components/Hero';
@@ -39,6 +39,21 @@ const HomePage: React.FC = () => {
   const nextSlide = () => setSliderIndex((prev) => (prev + 1) % sliderCount);
   const prevSlide = () => setSliderIndex((prev) => (prev - 1 + sliderCount) % sliderCount);
 
+  // Touch swipe support for mobile
+  const touchStartX = useRef<number | null>(null);
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return;
+    const delta = touchStartX.current - e.changedTouches[0].clientX;
+    if (Math.abs(delta) > 40) { // min swipe distance
+      if (delta > 0) nextSlide();
+      else prevSlide();
+    }
+    touchStartX.current = null;
+  };
+
   return (
     <>
       <Hero onExploreClick={() => scrollToSection('services-section')} />
@@ -73,8 +88,8 @@ const HomePage: React.FC = () => {
                 <p className="text-[9px] font-black uppercase tracking-[0.3em] opacity-40 mt-1">Active Monitoring</p>
               </div>
             </div>
-            <div className="relative mt-8">
-              <span className="text-5xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tighter text-neutral-200/40 select-none">
+            <div className="relative mt-8 overflow-hidden">
+              <span className="text-5xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tighter text-neutral-200/40 select-none whitespace-nowrap">
                 Infrastructure
               </span>
             </div>
@@ -92,7 +107,7 @@ const HomePage: React.FC = () => {
         />
       </div>
 
-      <section className="py-16 sm:py-24 md:py-48 bg-white text-black overflow-hidden relative z-30">
+      <section className="py-16 sm:py-24 md:py-32 bg-white text-black overflow-hidden relative z-30">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center mb-12 sm:mb-16 md:mb-24">
           <h2 className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-[0.85] mb-6 sm:mb-8">
             TRUE INFRASTRUCTURE PLAYGROUND
@@ -105,26 +120,30 @@ const HomePage: React.FC = () => {
         <div className="relative bg-black py-12 sm:py-20 group">
           <button
             onClick={prevSlide}
-            className="absolute left-2 sm:left-4 md:left-12 top-1/2 -translate-y-1/2 z-40 text-white hover:text-[#2176ff] transition-all p-3 sm:p-4 min-w-[44px] min-h-[44px] flex items-center justify-center"
+            className="absolute left-1 sm:left-4 md:left-12 top-1/2 -translate-y-1/2 z-40 text-white hover:text-[#2176ff] transition-all p-2 sm:p-4 min-w-[44px] min-h-[44px] flex items-center justify-center bg-black/20 sm:bg-transparent backdrop-blur-sm sm:backdrop-blur-none rounded"
             aria-label="Previous slide"
           >
-            <svg className="w-6 h-6 sm:w-8 sm:h-8 md:w-12 md:h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M15 19l-7-7 7-7" />
+            <svg className="w-5 h-5 sm:w-8 sm:h-8 md:w-12 md:h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 19l-7-7 7-7" />
             </svg>
           </button>
           <button
             onClick={nextSlide}
-            className="absolute right-2 sm:right-4 md:right-12 top-1/2 -translate-y-1/2 z-40 text-white hover:text-[#2176ff] transition-all p-3 sm:p-4 min-w-[44px] min-h-[44px] flex items-center justify-center"
+            className="absolute right-1 sm:right-4 md:right-12 top-1/2 -translate-y-1/2 z-40 text-white hover:text-[#2176ff] transition-all p-2 sm:p-4 min-w-[44px] min-h-[44px] flex items-center justify-center bg-black/20 sm:bg-transparent backdrop-blur-sm sm:backdrop-blur-none rounded"
             aria-label="Next slide"
           >
-            <svg className="w-6 h-6 sm:w-8 sm:h-8 md:w-12 md:h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9 5l7 7-7 7" />
+            <svg className="w-5 h-5 sm:w-8 sm:h-8 md:w-12 md:h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
             </svg>
           </button>
           <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32 relative">
-            <div className="relative aspect-video min-h-[260px] sm:min-h-[320px] md:min-h-[360px] overflow-hidden border border-white/5 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] bg-neutral-900">
+            <div
+              className="relative aspect-video min-h-[260px] sm:min-h-[320px] md:min-h-[360px] overflow-hidden border border-white/5 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] bg-neutral-900 cursor-grab active:cursor-grabbing"
+              onTouchStart={handleTouchStart}
+              onTouchEnd={handleTouchEnd}
+            >
               <div
-                className="flex transition-transform duration-1000 cubic-bezier(0.4, 0, 0.2, 1) h-full"
+                className="flex transition-transform duration-700 ease-in-out h-full"
                 style={{ transform: `translateX(-${sliderIndex * 100}%)` }}
               >
                 {sliderItems.length > 0 ? sliderItems.map((item, i) => (
@@ -160,7 +179,7 @@ const HomePage: React.FC = () => {
                 )}
               </div>
             </div>
-            <div className="flex justify-center mt-16 gap-4">
+            <div className="flex justify-center mt-8 sm:mt-12 gap-4">
               {Array.from({ length: sliderCount }).map((_, i) => (
                 <button
                   key={i}
@@ -198,6 +217,7 @@ const HomePage: React.FC = () => {
                   src={images.serviceCards[i]}
                   className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-[2000ms]"
                   alt={service.title}
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/75 to-black/50"></div>
                 <div className="relative z-10 p-6 sm:p-8 md:p-12 flex flex-col h-full text-white">
