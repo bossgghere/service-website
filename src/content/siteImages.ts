@@ -30,8 +30,6 @@ import cyberHeroAvif from '../assets/cyber-hero.avif';
 import financeJpg from '../assets/finance.jpg';
 import govtJpg from '../assets/govt.jpg';
 import healthcareJpg from '../assets/healthcare.jpg';
-import insuranceJpg from '../assets/insurance.jpg';
-import retailJpg from '../assets/retail.jpg';
 import telecomJpg from '../assets/telecom.jpg';
 import manifactureJpg from '../assets/manifacture.jpg';
 import logisticsJpg from '../assets/Logistics.jpg';
@@ -77,8 +75,6 @@ export const DEFAULT_IMAGES: Record<string, string> = {
   'industry.finance': financeJpg,
   'industry.government': govtJpg,
   'industry.healthcare': healthcareJpg,
-  'industry.insurance': insuranceJpg,
-  'industry.retail': retailJpg,
   'industry.telecom': telecomJpg,
   'industry.manufacturing': manifactureJpg,
   'industry.logistics': logisticsJpg,
