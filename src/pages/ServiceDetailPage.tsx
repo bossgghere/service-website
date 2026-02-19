@@ -320,13 +320,13 @@ const ServiceDetailPage: React.FC = () => {
 
   if (!displayContent) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-white">
+      <div className="min-h-screen flex items-center justify-center bg-white dark:bg-neutral-900">
         <div className="text-center px-8">
-          <h1 className="text-4xl font-black uppercase mb-4">Service not found</h1>
+          <h1 className="text-4xl font-black uppercase mb-4 text-black dark:text-white">Service not found</h1>
           <button
             type="button"
             onClick={() => navigate('/')}
-            className="px-8 py-4 bg-black text-white text-xs font-black uppercase tracking-widest hover:bg-[#2176ff] transition-all"
+            className="px-8 py-4 bg-black dark:bg-white text-white dark:text-black text-xs font-black uppercase tracking-widest hover:bg-[#2176ff] dark:hover:bg-[#2176ff] dark:hover:text-white transition-all"
           >
             Back to Home
           </button>
@@ -337,9 +337,9 @@ const ServiceDetailPage: React.FC = () => {
 
   const c = displayContent;
   return (
-    <div className="bg-white min-h-screen animate-in fade-in duration-700">
+    <div className="bg-white dark:bg-neutral-900 min-h-screen animate-in fade-in duration-700">
       {/* Hero */}
-      <section className="bg-black text-white pt-32 sm:pt-40 pb-16 sm:pb-24 px-6 sm:px-8 md:px-12 relative overflow-hidden">
+      <section className="bg-black dark:bg-neutral-950 text-white pt-32 sm:pt-40 pb-16 sm:pb-24 px-6 sm:px-8 md:px-12 relative overflow-hidden">
         <div className="absolute inset-0 wireframe-bg opacity-10 pointer-events-none" />
         <div className="absolute inset-0">
           <img
@@ -367,19 +367,19 @@ const ServiceDetailPage: React.FC = () => {
         {c.sections.map((section, idx) => (
           <div key={idx} className="mb-12 sm:mb-20 md:mb-28">
             {section.title && (
-              <h2 className="text-2xl md:text-4xl font-black uppercase tracking-tighter mb-6 text-black border-b-2 border-[#2176ff] pb-3 inline-block">
+              <h2 className="text-2xl md:text-4xl font-black uppercase tracking-tighter mb-6 text-black dark:text-white border-b-2 border-[#2176ff] pb-3 inline-block">
                 {section.title}
               </h2>
             )}
             {section.content && (
-              <p className="text-neutral-600 font-light leading-relaxed text-base md:text-lg mb-8">
+              <p className="text-neutral-600 dark:text-neutral-400 font-light leading-relaxed text-base md:text-lg mb-8">
                 {section.content}
               </p>
             )}
             {section.list && (
               <ul className="space-y-3 mb-8">
                 {section.list.map((item, i) => (
-                  <li key={i} className="flex items-start gap-3 text-neutral-600 font-light">
+                  <li key={i} className="flex items-start gap-3 text-neutral-600 dark:text-neutral-400 font-light">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#2176ff] mt-2.5 shrink-0" />
                     <span className="leading-relaxed">{item}</span>
                   </li>
@@ -387,7 +387,7 @@ const ServiceDetailPage: React.FC = () => {
               </ul>
             )}
             {section.image && (
-              <div className="rounded-lg overflow-hidden border border-neutral-200 shadow-lg my-8">
+              <div className="rounded-lg overflow-hidden border border-neutral-200 dark:border-neutral-700 shadow-lg my-8">
                 <img
                   src={section.image}
                   alt=""
@@ -401,15 +401,15 @@ const ServiceDetailPage: React.FC = () => {
       </div>
 
       {/* CTA */}
-      <section className="py-16 sm:py-24 px-6 sm:px-8 bg-neutral-50 border-t border-neutral-100 text-center">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-black uppercase tracking-tighter mb-6 sm:mb-8">
+      <section className="py-16 sm:py-24 px-6 sm:px-8 bg-neutral-50 dark:bg-neutral-800/50 border-t border-neutral-100 dark:border-neutral-800 text-center">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-black uppercase tracking-tighter mb-6 sm:mb-8 text-black dark:text-white">
           Ready to get started?
         </h2>
         <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
           <button
             type="button"
             onClick={() => navigate('/')}
-            className="min-h-[44px] px-8 sm:px-10 py-4 bg-black text-white text-[10px] font-black uppercase tracking-[0.3em] hover:bg-[#2176ff] transition-all"
+            className="min-h-[44px] px-8 sm:px-10 py-4 bg-black dark:bg-white text-white dark:text-black text-[10px] font-black uppercase tracking-[0.3em] hover:bg-[#2176ff] dark:hover:bg-[#2176ff] dark:hover:text-white transition-all"
           >
             View all services
           </button>
@@ -419,7 +419,7 @@ const ServiceDetailPage: React.FC = () => {
               navigate('/');
               setTimeout(() => document.getElementById('contact-section')?.scrollIntoView({ behavior: 'smooth' }), 200);
             }}
-            className="min-h-[44px] px-8 sm:px-10 py-4 border-2 border-black text-black text-[10px] font-black uppercase tracking-[0.3em] hover:bg-black hover:text-white transition-all"
+            className="min-h-[44px] px-8 sm:px-10 py-4 border-2 border-black dark:border-white text-black dark:text-white text-[10px] font-black uppercase tracking-[0.3em] hover:bg-black dark:hover:bg-white hover:text-white dark:hover:text-black transition-all"
           >
             Contact us
           </button>

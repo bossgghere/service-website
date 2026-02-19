@@ -41,9 +41,9 @@ const AboutPage: React.FC = () => {
   ];
 
   return (
-    <div className="bg-white min-h-screen animate-in fade-in duration-700">
+    <div className="bg-white dark:bg-neutral-900 min-h-screen animate-in fade-in duration-700">
       {/* Hero Header */}
-      <section className="bg-black text-white pt-32 sm:pt-40 pb-16 sm:pb-24 px-6 sm:px-8 md:px-12 relative overflow-hidden">
+      <section className="bg-black dark:bg-neutral-950 text-white pt-32 sm:pt-40 pb-16 sm:pb-24 px-6 sm:px-8 md:px-12 relative overflow-hidden">
         <div className="absolute inset-0 wireframe-bg opacity-10 pointer-events-none"></div>
         <div className="max-w-7xl mx-auto relative z-10 min-w-0">
           <span className="text-[10px] font-black tracking-[0.5em] text-[#2176ff] uppercase mb-6 sm:mb-8 block">ESTABLISHED_STANDARD</span>
@@ -57,14 +57,14 @@ const AboutPage: React.FC = () => {
       </section>
 
       {/* PROCESS SECTION */}
-      <section className="py-16 sm:py-24 px-6 sm:px-8 border-b border-neutral-100">
+      <section className="py-16 sm:py-24 px-6 sm:px-8 border-b border-neutral-100 dark:border-neutral-800">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 sm:gap-16 min-w-0">
           <div className="lg:col-span-4">
-             <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-tighter">PROCESS.</h2>
+             <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-tighter text-black dark:text-white">PROCESS.</h2>
              <div className="w-16 h-1 bg-[#2176ff] mt-6"></div>
           </div>
           <div className="lg:col-span-8">
-            <p className="text-xl md:text-2xl font-light text-neutral-600 leading-relaxed">
+            <p className="text-xl md:text-2xl font-light text-neutral-600 dark:text-neutral-400 leading-relaxed">
               Our engineering lifecycle is built on iterative refinement. From initial system initialization to global deployment, every packet of data follows a rigorous path of validation and optimization.
             </p>
           </div>
@@ -72,19 +72,19 @@ const AboutPage: React.FC = () => {
       </section>
 
       {/* CORE VALUES SECTION */}
-      <section className="py-16 sm:py-24 md:py-32 px-6 sm:px-8 bg-neutral-50">
+      <section className="py-16 sm:py-24 md:py-32 px-6 sm:px-8 bg-neutral-50 dark:bg-neutral-800/50">
         <div className="max-w-7xl mx-auto min-w-0">
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 mb-12 sm:mb-20 border-b-2 border-black pb-6 sm:pb-8">
-             <h2 className="text-3xl sm:text-5xl md:text-7xl font-black uppercase tracking-tighter">Core Values.</h2>
-             <span className="hidden md:block text-[10px] font-black tracking-[0.4em] text-neutral-300">SYSTEM_DNA_v4.2</span>
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 mb-12 sm:mb-20 border-b-2 border-black dark:border-white pb-6 sm:pb-8">
+             <h2 className="text-3xl sm:text-5xl md:text-7xl font-black uppercase tracking-tighter text-black dark:text-white">Core Values.</h2>
+             <span className="hidden md:block text-[10px] font-black tracking-[0.4em] text-neutral-300 dark:text-neutral-500">SYSTEM_DNA_v4.2</span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-neutral-200">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-neutral-200 dark:bg-neutral-700">
             {coreValues.map((value, idx) => (
-              <div key={idx} className="bg-white p-6 sm:p-8 md:p-12 hover:bg-black hover:text-white transition-all duration-500 group">
+              <div key={idx} className="bg-white dark:bg-neutral-800 p-6 sm:p-8 md:p-12 hover:bg-black dark:hover:bg-neutral-950 hover:text-white transition-all duration-500 group">
                 <span className="text-[10px] font-black text-[#2176ff] mb-6 block uppercase tracking-[0.2em]">0{idx + 1} //</span>
-                <h3 className="text-2xl font-black uppercase tracking-tight mb-6">{value.title}</h3>
-                <p className="text-neutral-500 font-light leading-relaxed group-hover:text-neutral-400">
+                <h3 className="text-2xl font-black uppercase tracking-tight mb-6 text-black dark:text-white group-hover:text-white">{value.title}</h3>
+                <p className="text-neutral-500 dark:text-neutral-400 font-light leading-relaxed group-hover:text-neutral-400">
                   {value.desc}
                 </p>
               </div>
@@ -94,14 +94,14 @@ const AboutPage: React.FC = () => {
       </section>
 
       {/* GOALS SECTION */}
-      <section className="py-16 sm:py-24 md:py-32 px-6 sm:px-8 bg-black text-white relative overflow-hidden">
+      <section className="py-16 sm:py-24 md:py-32 px-6 sm:px-8 bg-black dark:bg-neutral-950 text-white relative overflow-hidden">
         <div className="absolute inset-0 wireframe-bg opacity-[0.03] pointer-events-none"></div>
         <div className="max-w-7xl mx-auto relative z-10 min-w-0">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-24 items-center">
             <div>
               <h2 className="text-4xl sm:text-6xl md:text-8xl font-black uppercase tracking-tighter mb-6 sm:mb-10">Our Goals.</h2>
               <p className="text-lg sm:text-xl md:text-2xl font-light text-neutral-400 leading-relaxed mb-8 sm:mb-12">
-                Our primary goal is to ensure that our customers succeed through shared core values. Orionis subscribes and follows a framework for decision making processes, and that framework is the standard by which we aim to conduct business with our customers, our co-workers, and in our communities.
+                Our primary goal is to ensure that our customers succeed through shared core values. Sira Technologies subscribes and follows a framework for decision making processes, and that framework is the standard by which we aim to conduct business with our customers, our co-workers, and in our communities.
               </p>
               <div className="flex gap-4">
                  <div className="w-12 h-1 bg-[#2176ff]"></div>
@@ -109,7 +109,7 @@ const AboutPage: React.FC = () => {
                  <div className="w-4 h-1 bg-white/20"></div>
               </div>
             </div>
-            <div className="aspect-video lg:aspect-square bg-neutral-900 border border-white/10 p-4">
+            <div className="aspect-video lg:aspect-square bg-neutral-900 dark:bg-neutral-800 border border-white/10 p-4">
                <img src={getMergedImages().about.goals} alt="Team and goals" className="w-full h-full object-cover" loading="lazy" />
             </div>
           </div>
@@ -117,12 +117,12 @@ const AboutPage: React.FC = () => {
       </section>
 
       {/* CTA Footer for Page */}
-      <section className="py-16 sm:py-24 md:py-32 px-6 sm:px-8 bg-white text-center">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tighter mb-8 sm:mb-12">Ready to transform?</h2>
+      <section className="py-16 sm:py-24 md:py-32 px-6 sm:px-8 bg-white dark:bg-neutral-900 text-center">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tighter mb-8 sm:mb-12 text-black dark:text-white">Ready to transform?</h2>
         <button
           type="button"
           onClick={goToServices}
-          className="min-h-[44px] px-8 sm:px-12 py-4 sm:py-5 bg-black text-white text-[10px] font-black uppercase tracking-[0.4em] hover:bg-[#2176ff] transition-all"
+          className="min-h-[44px] px-8 sm:px-12 py-4 sm:py-5 bg-black dark:bg-white text-white dark:text-black text-[10px] font-black uppercase tracking-[0.4em] hover:bg-[#2176ff] dark:hover:bg-[#2176ff] dark:hover:text-white transition-all"
         >
           Explore Infrastructure
         </button>

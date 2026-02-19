@@ -44,9 +44,9 @@ const IndustriesPage: React.FC = () => {
   }, []);
 
   return (
-    <div className="bg-white min-h-screen animate-in fade-in duration-700">
+    <div className="bg-white dark:bg-neutral-900 min-h-screen animate-in fade-in duration-700">
       {/* Hero */}
-      <section className="bg-black text-white pt-32 sm:pt-40 pb-16 sm:pb-24 px-6 sm:px-8 md:px-12 relative overflow-hidden">
+      <section className="bg-black dark:bg-neutral-950 text-white pt-32 sm:pt-40 pb-16 sm:pb-24 px-6 sm:px-8 md:px-12 relative overflow-hidden">
         <div className="absolute inset-0 wireframe-bg opacity-10 pointer-events-none" />
         <div className="absolute inset-0">
           <img
@@ -75,11 +75,11 @@ const IndustriesPage: React.FC = () => {
           <section
             key={industry.id}
             id={industry.id}
-            className={`scroll-mt-20 sm:scroll-mt-24 py-12 sm:py-16 md:py-20 border-b border-neutral-100 last:border-0 ${idx % 2 === 1 ? 'md:flex-row-reverse' : ''}`}
+            className={`scroll-mt-20 sm:scroll-mt-24 py-12 sm:py-16 md:py-20 border-b border-neutral-100 dark:border-neutral-800 last:border-0 ${idx % 2 === 1 ? 'md:flex-row-reverse' : ''}`}
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
               <div className={idx % 2 === 1 ? 'md:col-start-2 md:row-start-1' : ''}>
-                <div className="rounded-lg overflow-hidden border border-neutral-200 shadow-lg aspect-[4/3] md:aspect-video">
+                <div className="rounded-lg overflow-hidden border border-neutral-200 dark:border-neutral-700 shadow-lg aspect-[4/3] md:aspect-video">
                   <img
                     src={industry.image}
                     alt={industry.title}
@@ -89,10 +89,10 @@ const IndustriesPage: React.FC = () => {
                 </div>
               </div>
               <div className={idx % 2 === 1 ? 'md:col-start-1 md:row-start-1' : ''}>
-                <h2 className="text-2xl md:text-4xl font-black uppercase tracking-tighter text-black border-b-2 border-[#2176ff] pb-3 inline-block mb-6">
+                <h2 className="text-2xl md:text-4xl font-black uppercase tracking-tighter text-black dark:text-white border-b-2 border-[#2176ff] pb-3 inline-block mb-6">
                   {industry.title}
                 </h2>
-                <p className="text-neutral-600 font-light leading-relaxed text-base md:text-lg">
+                <p className="text-neutral-600 dark:text-neutral-400 font-light leading-relaxed text-base md:text-lg">
                   {industry.summary}
                 </p>
               </div>
@@ -102,8 +102,8 @@ const IndustriesPage: React.FC = () => {
       </div>
 
       {/* CTA */}
-      <section className="py-16 sm:py-24 px-6 sm:px-8 bg-neutral-50 border-t border-neutral-100 text-center">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-black uppercase tracking-tighter mb-6 sm:mb-8">
+      <section className="py-16 sm:py-24 px-6 sm:px-8 bg-neutral-50 dark:bg-neutral-800/50 border-t border-neutral-100 dark:border-neutral-800 text-center">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-black uppercase tracking-tighter mb-6 sm:mb-8 text-black dark:text-white">
           Ready to transform your industry?
         </h2>
         <button
@@ -112,7 +112,7 @@ const IndustriesPage: React.FC = () => {
             navigate('/');
             setTimeout(() => document.getElementById('contact-section')?.scrollIntoView({ behavior: 'smooth' }), 200);
           }}
-          className="min-h-[44px] px-8 sm:px-10 py-4 bg-black text-white text-[10px] font-black uppercase tracking-[0.3em] hover:bg-[#2176ff] transition-all"
+          className="min-h-[44px] px-8 sm:px-10 py-4 bg-black dark:bg-white text-white dark:text-black text-[10px] font-black uppercase tracking-[0.3em] hover:bg-[#2176ff] dark:hover:bg-[#2176ff] dark:hover:text-white transition-all"
         >
           Get in touch
         </button>

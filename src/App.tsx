@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import CookieConsent from './components/CookieConsent';
 import HomePage from './pages/HomePage';
 import AboutPage from './components/AboutPage';
 import ServiceDetailPage from './pages/ServiceDetailPage';
@@ -10,7 +11,7 @@ import IndustriesPage from './pages/IndustriesPage';
 const App: React.FC = () => {
   return (
     <BrowserRouter>
-      <div className="min-h-screen bg-white selection:bg-[#2176ff] selection:text-white">
+      <div className="min-h-screen bg-white dark:bg-neutral-900 selection:bg-[#2176ff] selection:text-white">
         <a href="#main-content" className="skip-link">
           Skip to main content
         </a>
@@ -29,6 +30,7 @@ const App: React.FC = () => {
           </Routes>
         </main>
         <Footer />
+        <CookieConsent />
       </div>
     </BrowserRouter>
   );

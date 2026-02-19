@@ -1,31 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>
+      // Force default to light (white) so the page never starts in dark mode
+      (function() {
+        try { document.documentElement.classList.remove('dark'); } catch (e) {}
+      })();
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ORIONIS | High-Performance Digital Infrastructure</title>
-    <meta name="description" content="Orionis delivers high-performance digital infrastructure, DevOps, cloud architecture, and data engineering for global enterprise. 99.9% SLA, 24/7 monitoring.">
+    <title>SIRA TECHNOLOGIES | High-Performance Digital Infrastructure</title>
+    <meta name="description" content="Sira Technologies delivers high-performance digital infrastructure, DevOps, cloud architecture, and data engineering for global enterprise. 99.9% SLA, 24/7 monitoring.">
 
     <!-- Favicon -->
-    <link rel="icon" href="/logo.png" type="image/png">
-    <link rel="apple-touch-icon" href="/logo.png">
+    <link rel="icon" href="/newlogo.png" type="image/png">
+    <link rel="apple-touch-icon" href="/newlogo.png">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="ORIONIS | High-Performance Digital Infrastructure">
-    <meta property="og:description" content="Orionis delivers high-performance digital infrastructure, DevOps, cloud architecture, and data engineering for global enterprise.">
-    <meta property="og:image" content="/logo.png">
-    <meta property="og:image:alt" content="Orionis – High-Performance Digital Infrastructure">
-    <meta property="og:site_name" content="Orionis">
+    <meta property="og:title" content="SIRA TECHNOLOGIES | High-Performance Digital Infrastructure">
+    <meta property="og:description" content="Sira Technologies delivers high-performance digital infrastructure, DevOps, cloud architecture, and data engineering for global enterprise.">
+    <meta property="og:image" content="/newlogo.png">
+    <meta property="og:image:alt" content="Sira Technologies – High-Performance Digital Infrastructure">
+    <meta property="og:site_name" content="Sira Technologies">
     <meta property="og:locale" content="en_US">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="ORIONIS | High-Performance Digital Infrastructure">
-    <meta name="twitter:description" content="Orionis delivers high-performance digital infrastructure, DevOps, cloud architecture, and data engineering for global enterprise.">
-    <meta name="twitter:image" content="/logo.png">
-    <meta name="twitter:image:alt" content="Orionis – High-Performance Digital Infrastructure">
+    <meta name="twitter:title" content="SIRA TECHNOLOGIES | High-Performance Digital Infrastructure">
+    <meta name="twitter:description" content="Sira Technologies delivers high-performance digital infrastructure, DevOps, cloud architecture, and data engineering for global enterprise.">
+    <meta name="twitter:image" content="/newlogo.png">
+    <meta name="twitter:image:alt" content="Sira Technologies – High-Performance Digital Infrastructure">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      // Use class-based dark mode only (ignore system preference); default stays white
+      tailwind.config = { darkMode: 'class' };
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -38,7 +48,7 @@
         }
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #ffffff;
+            background-color: #ffffff !important;
             color: #000000;
             overflow-x: hidden;
             scroll-behavior: smooth;
@@ -46,6 +56,10 @@
             -moz-osx-font-smoothing: grayscale;
             min-width: 0;
             touch-action: pan-x pan-y pinch-zoom;
+        }
+        html.dark body {
+            background-color: #171717 !important;
+            color: #fafafa;
         }
         @media (prefers-reduced-motion: reduce) {
             *, *::before, *::after {
@@ -68,15 +82,25 @@
             backdrop-filter: blur(16px) saturate(180%);
             -webkit-backdrop-filter: blur(16px) saturate(180%);
         }
+        html.dark .glass-header {
+            background: rgba(23, 23, 23, 0.85);
+        }
         .wireframe-bg {
             background-image:
                 linear-gradient(to right, rgba(0,0,0,0.03) 1px, transparent 1px),
                 linear-gradient(to bottom, rgba(0,0,0,0.03) 1px, transparent 1px);
             background-size: 80px 80px;
         }
+        html.dark .wireframe-bg {
+            background-image:
+                linear-gradient(to right, rgba(255,255,255,0.04) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255,255,255,0.04) 1px, transparent 1px);
+        }
         ::-webkit-scrollbar { width: 3px; }
         ::-webkit-scrollbar-track { background: #fff; }
         ::-webkit-scrollbar-thumb { background: #000; border-radius: 0; }
+        html.dark ::-webkit-scrollbar-track { background: #171717; }
+        html.dark ::-webkit-scrollbar-thumb { background: #525252; border-radius: 0; }
         ::-moz-selection { background: #2176ff; color: white; }
         ::selection { background: #2176ff; color: white; }
     </style>
@@ -90,8 +114,8 @@
   }
 }
 </script>
-  <script type="module" crossorigin src="/assets/index-DGVbX93D.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-JD4mylBC.css">
+  <script type="module" crossorigin src="/assets/index-jPUWG1ls.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-cWPNQDEm.css">
 </head>
 <body>
     <div id="root"></div>

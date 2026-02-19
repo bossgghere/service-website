@@ -36,7 +36,7 @@ const SystemMatrix: React.FC = () => {
             </h2>
             
             <p className="text-lg text-neutral-400 font-light leading-relaxed mb-12 max-w-lg">
-              The Orionis Matrix is a self-optimizing neural layer that manages workload distribution across global nodes. Built for zero-latency execution and absolute algorithmic precision.
+              The Sira Technologies Matrix is a self-optimizing neural layer that manages workload distribution across global nodes. Built for zero-latency execution and absolute algorithmic precision.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-8 mb-16 border-t border-white/10 pt-12">
