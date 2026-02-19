@@ -10,12 +10,14 @@ const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isDesktop, setIsDesktop] = useState(NAVBAR_MEDIA?.matches ?? true);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState<'top' | 'services' | 'contact'>('top');
   const { isDark, toggleTheme } = useTheme();
   const navigate = useNavigate();
   const location = useLocation();
   const pathname = location.pathname;
   const isAbout = pathname === '/about';
   const isIndustries = pathname === '/industries';
+  const isHome = pathname === '/';
 
   const showLogoInFloating = !isDesktop; // mobile: always show logo in floating header
 
@@ -24,6 +26,33 @@ const Navbar: React.FC = () => {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Track which home-page section is in view for nav highlight
+  useEffect(() => {
+    if (pathname !== '/') {
+      setActiveSection('top');
+      return;
+    }
+
+    const checkSections = () => {
+      const servicesEl = document.getElementById('services-section');
+      const contactEl = document.getElementById('contact-section');
+      if (!servicesEl || !contactEl) return;
+      const sRect = servicesEl.getBoundingClientRect();
+      const cRect = contactEl.getBoundingClientRect();
+      const trigger = window.innerHeight * 0.35;
+      if (cRect.top <= trigger && cRect.bottom > 0) setActiveSection('contact');
+      else if (sRect.top <= trigger && sRect.bottom > 0) setActiveSection('services');
+      else setActiveSection('top');
+    };
+
+    const t = setTimeout(checkSections, 150);
+    window.addEventListener('scroll', checkSections, { passive: true });
+    return () => {
+      clearTimeout(t);
+      window.removeEventListener('scroll', checkSections);
+    };
+  }, [pathname]);
 
   useEffect(() => {
     if (!NAVBAR_MEDIA) return;
@@ -91,7 +120,7 @@ const Navbar: React.FC = () => {
             </a>
           )}
           <div className="hidden md:flex flex-1 md:justify-center items-center gap-0.5 lg:gap-1">
-            <NavLink onClick={() => goTo('/')} active={pathname === '/'} isScrolled={isScrolled}>
+            <NavLink onClick={() => goTo('/')} active={isHome && activeSection === 'top'} isScrolled={isScrolled}>
               Home
             </NavLink>
             <NavLink onClick={() => goTo('/about')} active={isAbout} isScrolled={isScrolled}>
@@ -100,10 +129,10 @@ const Navbar: React.FC = () => {
             <NavLink onClick={() => goTo('/industries')} active={isIndustries} isScrolled={isScrolled}>
               Industries
             </NavLink>
-            <NavLink onClick={() => scrollToSection('services-section')} active={false} isScrolled={isScrolled}>
+            <NavLink onClick={() => scrollToSection('services-section')} active={isHome && activeSection === 'services'} isScrolled={isScrolled}>
               Services
             </NavLink>
-            <NavLink onClick={() => scrollToSection('contact-section')} active={false} isScrolled={isScrolled}>
+            <NavLink onClick={() => scrollToSection('contact-section')} active={isHome && activeSection === 'contact'} isScrolled={isScrolled}>
               Contact
             </NavLink>
           </div>
