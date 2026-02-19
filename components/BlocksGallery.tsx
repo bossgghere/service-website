@@ -1,11 +1,12 @@
 import React from 'react';
+import { PLACEHOLDER_IMAGE } from '../content/siteImages';
 
 const BlocksGallery: React.FC = () => {
   const blocks = [
-    { id: "01", name: "BENT OSCILLATOR", category: "BLOCKS", img: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=600" },
-    { id: "02", name: "DRUM SEQUENCER", category: "BLOCKS", img: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&q=80&w=600" },
-    { id: "03", name: "DUAL FILTER", category: "BLOCKS", img: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=600" },
-    { id: "04", name: "MOD DELAY", category: "BLOCKS", img: "https://images.unsplash.com/photo-1558494949-ef010cbdcc51?auto=format&fit=crop&q=80&w=600" }
+    { id: "01", name: "BENT OSCILLATOR", category: "BLOCKS", img: PLACEHOLDER_IMAGE },
+    { id: "02", name: "DRUM SEQUENCER", category: "BLOCKS", img: PLACEHOLDER_IMAGE },
+    { id: "03", name: "DUAL FILTER", category: "BLOCKS", img: PLACEHOLDER_IMAGE },
+    { id: "04", name: "MOD DELAY", category: "BLOCKS", img: PLACEHOLDER_IMAGE }
   ];
 
   return (
@@ -30,7 +31,11 @@ const BlocksGallery: React.FC = () => {
                 <h4 className="text-lg font-black uppercase tracking-tight mb-2">{block.name}</h4>
                 <div className="w-10 h-1 bg-white scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500"></div>
               </div>
-              <button className="w-full py-4 bg-white text-black text-[10px] font-black uppercase tracking-[0.3em] opacity-0 group-hover:opacity-100 transition-opacity">
+              <button
+                type="button"
+                onClick={() => document.getElementById('contact-section')?.scrollIntoView({ behavior: 'smooth' })}
+                className="w-full py-4 bg-white text-black text-[10px] font-black uppercase tracking-[0.3em] opacity-0 group-hover:opacity-100 transition-opacity"
+              >
                 VIEW DETAILS
               </button>
             </div>

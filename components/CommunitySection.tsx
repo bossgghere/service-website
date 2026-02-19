@@ -1,4 +1,5 @@
 import React from 'react';
+import { PLACEHOLDER_IMAGE } from '../content/siteImages';
 
 const SystemMatrix: React.FC = () => {
   return (
@@ -16,7 +17,7 @@ const SystemMatrix: React.FC = () => {
             <div className="relative group overflow-hidden border border-white/20 p-2 sm:p-4 bg-neutral-900/50 backdrop-blur-sm">
               <div className="relative aspect-[4/5] overflow-hidden">
                 <img 
-                  src="https://images.unsplash.com/photo-1558494949-ef010cbdcc51?auto=format&fit=crop&q=80&w=1200" 
+                  src={PLACEHOLDER_IMAGE} 
                   className="w-full h-full object-cover grayscale brightness-50 group-hover:scale-105 transition-transform duration-[3000ms]" 
                   alt="Infrastructure Processor" 
                 />

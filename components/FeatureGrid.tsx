@@ -1,19 +1,10 @@
 import React from 'react';
+import { PLACEHOLDER_IMAGE } from '../content/siteImages';
 
 const FeatureGrid: React.FC = () => {
   const features = [
-    {
-      title: "REAKTOR BLOCKS",
-      desc: "Experience the speed and flexibility of modular synthesis. BLOCKS are the framework for building custom synths with drag-and-drop simplicity.",
-      image: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&q=80&w=1200",
-      isReversed: false
-    },
-    {
-      title: "CORE ENGINE",
-      desc: "Dive deep into the primary layer. REAKTOR Core provides the building blocks for creating entirely new DSP architectures from scratch.",
-      image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc51?auto=format&fit=crop&q=80&w=1200",
-      isReversed: true
-    }
+    { title: "REAKTOR BLOCKS", desc: "Experience the speed and flexibility of modular synthesis. BLOCKS are the framework for building custom synths with drag-and-drop simplicity.", image: PLACEHOLDER_IMAGE, isReversed: false },
+    { title: "CORE ENGINE", desc: "Dive deep into the primary layer. REAKTOR Core provides the building blocks for creating entirely new DSP architectures from scratch.", image: PLACEHOLDER_IMAGE, isReversed: true }
   ];
 
   return (
@@ -33,7 +24,11 @@ const FeatureGrid: React.FC = () => {
             <p className="text-lg text-neutral-400 font-light leading-relaxed mb-10">
               {feature.desc}
             </p>
-            <button className="self-start text-[10px] font-black uppercase tracking-[0.3em] border-b-2 border-white pb-2 hover:text-neutral-400 hover:border-neutral-400 transition-all">
+            <button
+              type="button"
+              onClick={() => document.getElementById('contact-section')?.scrollIntoView({ behavior: 'smooth' })}
+              className="self-start text-[10px] font-black uppercase tracking-[0.3em] border-b-2 border-white pb-2 hover:text-neutral-400 hover:border-neutral-400 transition-all"
+            >
               LEARN MORE
             </button>
           </div>

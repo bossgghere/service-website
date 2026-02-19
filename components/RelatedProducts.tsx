@@ -1,35 +1,12 @@
 import React from 'react';
+import { PLACEHOLDER_IMAGE } from '../content/siteImages';
 
 const ModularSystems: React.FC = () => {
   const systems = [
-    {
-      id: "CYB-01",
-      title: "Cyber Security",
-      desc: "Neural-threat detection with active countermeasures. 2ms response latency.",
-      tags: ["AES-256", "QUANTUM-SAFE"],
-      image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=600"
-    },
-    {
-      id: "EDG-04",
-      title: "Edge Node",
-      desc: "Distributed compute clusters for real-time telemetry processing.",
-      tags: ["LOW-LATENCY", "ARM-V9"],
-      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=600"
-    },
-    {
-      id: "SaaS-X",
-      title: "Enterprise Cloud",
-      desc: "High-availability orchestration for global-scale application deployment.",
-      tags: ["KUBERNETES", "MULTI-AZ"],
-      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=600"
-    },
-    {
-      id: "DATA-Z",
-      title: "Predictive AI",
-      desc: "Custom-modeled neural networks for complex pattern recognition.",
-      tags: ["PYTORCH", "CUDA-X"],
-      image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc51?auto=format&fit=crop&q=80&w=600"
-    }
+    { id: "CYB-01", title: "Cyber Security", desc: "Neural-threat detection with active countermeasures. 2ms response latency.", tags: ["AES-256", "QUANTUM-SAFE"], image: PLACEHOLDER_IMAGE },
+    { id: "EDG-04", title: "Edge Node", desc: "Distributed compute clusters for real-time telemetry processing.", tags: ["LOW-LATENCY", "ARM-V9"], image: PLACEHOLDER_IMAGE },
+    { id: "SaaS-X", title: "Enterprise Cloud", desc: "High-availability orchestration for global-scale application deployment.", tags: ["KUBERNETES", "MULTI-AZ"], image: PLACEHOLDER_IMAGE },
+    { id: "DATA-Z", title: "Predictive AI", desc: "Custom-modeled neural networks for complex pattern recognition.", tags: ["PYTORCH", "CUDA-X"], image: PLACEHOLDER_IMAGE }
   ];
 
   return (
@@ -73,8 +50,12 @@ const ModularSystems: React.FC = () => {
               </div>
 
               {/* Bottom Interaction */}
-              <button className="w-full py-4 bg-black text-white text-[9px] font-black tracking-widest uppercase transition-all translate-y-full group-hover:translate-y-0">
-                Configure Module
+              <button
+                type="button"
+                onClick={() => document.getElementById('contact-section')?.scrollIntoView({ behavior: 'smooth' })}
+                className="w-full py-4 bg-black text-white text-[9px] font-black tracking-widest uppercase transition-all translate-y-full group-hover:translate-y-0"
+              >
+                Learn More
               </button>
             </div>
           ))}
