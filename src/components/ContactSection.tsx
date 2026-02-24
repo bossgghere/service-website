@@ -70,14 +70,6 @@ const ContactSection: React.FC = () => {
             <RevealStagger className="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-12 pt-8 sm:pt-12 border-t border-neutral-100 dark:border-neutral-700" staggerMs={100} as="div">
               <div className="group">
                 <span className="text-[8px] sm:text-[9px] font-black uppercase tracking-widest text-neutral-300 dark:text-neutral-500 block mb-2">
-                  Technical Support
-                </span>
-                <a href="tel:+13092046360" className="text-sm font-bold text-black dark:text-white hover:text-[#2176ff] transition-colors flex items-center gap-2">
-                  +1 (309) 204 6360
-                </a>
-              </div>
-              <div className="group">
-                <span className="text-[8px] sm:text-[9px] font-black uppercase tracking-widest text-neutral-300 dark:text-neutral-500 block mb-2">
                   Inquiries
                 </span>
                 <a href="mailto:info@siratechnologies.com" className="text-sm font-bold text-black dark:text-white hover:text-[#2176ff] transition-colors flex items-center gap-2">

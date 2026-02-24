@@ -44,9 +44,7 @@ const Footer: React.FC = () => {
             <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1 text-xs font-bold text-white/80 uppercase tracking-wider">
               <a href="mailto:info@siratechnologies.com" className="hover:text-[#2176ff] transition-colors">info@siratechnologies.com</a>
               <span className="text-white/40">·</span>
-              <span>T: +1 (309) 204 6360</span>
-              <span className="text-white/40">·</span>
-              <a href="tel:+18572098134" className="hover:text-[#2176ff] transition-colors">+1 (857) 209-8134</a>
+              <a href="tel:+13462786004" className="hover:text-[#2176ff] transition-colors">+1 (346) 278-6004</a>
               <span className="text-white/40">·</span>
               <span>2509 W Iles Ave, Springfield IL</span>
             </div>
