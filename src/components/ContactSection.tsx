@@ -72,8 +72,8 @@ const ContactSection: React.FC = () => {
                 <span className="text-[8px] sm:text-[9px] font-black uppercase tracking-widest text-neutral-300 dark:text-neutral-500 block mb-2">
                   Inquiries
                 </span>
-                <a href="mailto:info@siratechnologies.com" className="text-sm font-bold text-black dark:text-white hover:text-[#2176ff] transition-colors flex items-center gap-2">
-                  info@siratechnologies.com
+                <a href="mailto:info@sira-technologies.com" className="text-sm font-bold text-black dark:text-white hover:text-[#2176ff] transition-colors flex items-center gap-2">
+                  info@sira-technologies.com
                 </a>
               </div>
               <div className="sm:col-span-2">
@@ -103,12 +103,12 @@ const ContactSection: React.FC = () => {
             )}
             {status === 'error' && (
               <p className="mb-6 p-4 bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-800 text-red-800 dark:text-red-200 text-sm font-medium" role="alert">
-                Something went wrong. Please email us at info@siratechnologies.com or try again.
+                Something went wrong. Please email us at <a href="mailto:info@sira-technologies.com" className="underline hover:text-[#2176ff]">info@sira-technologies.com</a> or try again.
               </p>
             )}
             {status === 'unconfigured' && (
               <p className="mb-6 p-4 bg-amber-50 dark:bg-amber-900/30 border border-amber-200 dark:border-amber-800 text-amber-800 dark:text-amber-200 text-sm font-medium" role="status">
-                Form is not configured. Set VITE_FORMSPREE_ID in your environment, or email us at info@siratechnologies.com.
+                Form is not configured. Set VITE_FORMSPREE_ID in your environment, or email us at <a href="mailto:info@sira-technologies.com" className="underline hover:text-[#2176ff]">info@sira-technologies.com</a>.
               </p>
             )}
 
