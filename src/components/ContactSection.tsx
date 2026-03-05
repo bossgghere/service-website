@@ -1,42 +1,22 @@
 import React, { useState } from 'react';
 import { Reveal, RevealStagger } from './Reveal';
 
-const FORMSPREE_ID = import.meta.env.VITE_FORMSPREE_ID as string | undefined;
+const CONTACT_EMAIL = 'info@sira-technologies.com';
 
 const ContactSection: React.FC = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-  const [isSending, setIsSending] = useState(false);
-  const [status, setStatus] = useState<'idle' | 'success' | 'error' | 'unconfigured'>('idle');
+  const [status, setStatus] = useState<'idle' | 'success'>('idle');
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!FORMSPREE_ID) {
-      setStatus('unconfigured');
-      return;
-    }
-    setIsSending(true);
-    setStatus('idle');
-    try {
-      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
-        }),
-      });
-      if (res.ok) {
-        setStatus('success');
-        setFormData({ name: '', email: '', message: '' });
-      } else {
-        setStatus('error');
-      }
-    } catch {
-      setStatus('error');
-    } finally {
-      setIsSending(false);
-    }
+    const subject = encodeURIComponent(`Contact from ${formData.name} (${formData.email})`);
+    const body = encodeURIComponent(
+      `${formData.message}\n\n---\nFrom: ${formData.name}\nEmail: ${formData.email}`
+    );
+    const mailtoUrl = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+    window.location.href = mailtoUrl;
+    setStatus('success');
+    setFormData({ name: '', email: '', message: '' });
   };
 
   return (
@@ -72,8 +52,8 @@ const ContactSection: React.FC = () => {
                 <span className="text-[8px] sm:text-[9px] font-black uppercase tracking-widest text-neutral-300 dark:text-neutral-500 block mb-2">
                   Inquiries
                 </span>
-                <a href="mailto:info@sira-technologies.com" className="text-sm font-bold text-black dark:text-white hover:text-[#2176ff] transition-colors flex items-center gap-2">
-                  info@sira-technologies.com
+                <a href={`mailto:${CONTACT_EMAIL}`} className="text-sm font-bold text-black dark:text-white hover:text-[#2176ff] transition-colors flex items-center gap-2">
+                  {CONTACT_EMAIL}
                 </a>
               </div>
               <div className="sm:col-span-2">
@@ -98,17 +78,7 @@ const ContactSection: React.FC = () => {
 
             {status === 'success' && (
               <p className="mb-6 p-4 bg-green-50 dark:bg-green-900/30 border border-green-200 dark:border-green-800 text-green-800 dark:text-green-200 text-sm font-medium" role="status">
-                Message sent. We'll get back to you soon.
-              </p>
-            )}
-            {status === 'error' && (
-              <p className="mb-6 p-4 bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-800 text-red-800 dark:text-red-200 text-sm font-medium" role="alert">
-                Something went wrong. Please email us at <a href="mailto:info@sira-technologies.com" className="underline hover:text-[#2176ff]">info@sira-technologies.com</a> or try again.
-              </p>
-            )}
-            {status === 'unconfigured' && (
-              <p className="mb-6 p-4 bg-amber-50 dark:bg-amber-900/30 border border-amber-200 dark:border-amber-800 text-amber-800 dark:text-amber-200 text-sm font-medium" role="status">
-                Form is not configured. Set VITE_FORMSPREE_ID in your environment, or email us at <a href="mailto:info@sira-technologies.com" className="underline hover:text-[#2176ff]">info@sira-technologies.com</a>.
+                Your email client should open with the message ready to send to {CONTACT_EMAIL}. If it didn't open, <a href={`mailto:${CONTACT_EMAIL}`} className="underline hover:text-green-700 dark:hover:text-green-300">email us directly</a>.
               </p>
             )}
 
@@ -148,17 +118,10 @@ const ContactSection: React.FC = () => {
 
               <button
                 type="submit"
-                disabled={isSending || !FORMSPREE_ID}
-                className="w-full min-h-[44px] py-4 sm:py-6 bg-black text-white text-[10px] sm:text-xs font-black tracking-[0.3em] sm:tracking-[0.4em] uppercase hover:bg-[#2176ff] transition-all flex items-center justify-center gap-4 group disabled:opacity-70 disabled:cursor-not-allowed"
+                className="w-full min-h-[44px] py-4 sm:py-6 bg-black text-white text-[10px] sm:text-xs font-black tracking-[0.3em] sm:tracking-[0.4em] uppercase hover:bg-[#2176ff] transition-all flex items-center justify-center gap-4 group"
               >
-                {isSending ? (
-                  <span className="animate-pulse">SENDING...</span>
-                ) : (
-                  <>
-                    SEND MESSAGE
-                    <div className="w-6 sm:w-8 h-[2px] bg-white group-hover:w-12 transition-all"></div>
-                  </>
-                )}
+                SEND MESSAGE
+                <div className="w-6 sm:w-8 h-[2px] bg-white group-hover:w-12 transition-all"></div>
               </button>
             </form>
           </div>
