@@ -97,12 +97,12 @@
 }
 
 .marquee-wrap {
-  mask-image: linear-gradient(to right, transparent 0%, black 18%, black 82%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 18%, black 82%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
 }
 
 .animate-marquee-r2l {
-  animation: marquee-r2l 24s linear infinite;
+  animation: marquee-r2l 28s linear infinite;
   will-change: transform;
   backface-visibility: hidden;
 }

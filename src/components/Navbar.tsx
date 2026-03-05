@@ -102,8 +102,8 @@ const Navbar: React.FC = () => {
       <div
         className={`relative mx-auto flex flex-col md:flex-row md:items-center transition-all duration-300 ease-out ${
           isScrolled
-            ? `min-h-[52px] rounded-full bg-white/90 dark:bg-neutral-900/90 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.12)] dark:shadow-[0_8px_32px_-8px_rgba(0,0,0,0.5)] backdrop-blur-xl border border-neutral-200/80 dark:border-neutral-700 px-5 sm:px-6 ${isMobileMenuOpen ? 'w-full max-w-full rounded-2xl rounded-b-none' : 'max-w-2xl lg:max-w-3xl'}`
-            : 'min-h-[72px] sm:min-h-[80px] w-full max-w-full rounded-none border-b border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 px-4 sm:px-6 lg:px-10'
+            ? `min-h-[52px] rounded-full bg-white/97 dark:bg-neutral-900/97 shadow-[0_12px_48px_-12px_rgba(0,0,0,0.18)] dark:shadow-[0_12px_48px_-12px_rgba(0,0,0,0.55)] backdrop-blur-xl border border-neutral-200 dark:border-neutral-700 px-5 sm:px-6 ${isMobileMenuOpen ? 'w-full max-w-full rounded-2xl rounded-b-none' : 'max-w-2xl lg:max-w-3xl'}`
+            : 'min-h-[72px] sm:min-h-[80px] w-full max-w-full rounded-none border-b border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 px-4 sm:px-6 lg:px-10 shadow-[0_1px_0_0_rgba(0,0,0,0.05)] dark:shadow-[0_1px_0_0_rgba(255,255,255,0.06)]'
         }`}
       >
         <div className={`flex w-full max-w-7xl mx-auto items-center justify-between md:justify-center md:gap-1 ${isScrolled ? 'h-[52px]' : 'h-[72px] sm:h-[80px]'}`}>
@@ -113,7 +113,7 @@ const Navbar: React.FC = () => {
             <a
               href="/"
               onClick={(e) => { e.preventDefault(); goTo('/'); }}
-              className="relative flex items-center shrink-0 py-2 rounded-lg transition-opacity hover:opacity-80 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2176ff] focus-visible:ring-offset-2"
+              className="relative flex items-center shrink-0 py-2 px-1 rounded-lg transition-all duration-200 hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2176ff] focus-visible:ring-offset-2 hover:bg-neutral-100/80 dark:hover:bg-neutral-800/80"
               aria-label="Sira Technologies home"
             >
               <img src={logo} alt="Sira Technologies" className="h-9 sm:h-10 md:h-11 w-auto object-contain dark:brightness-0 dark:invert" />
@@ -224,7 +224,7 @@ const NavLink = ({
   >
     {children}
     <span
-      className={`absolute bottom-1 left-4 right-4 h-px bg-[#2176ff] transform origin-left transition-transform duration-300 ease-out rounded-full ${
+      className={`absolute bottom-1.5 left-4 right-4 h-0.5 bg-[#2176ff] transform origin-left transition-transform duration-300 ease-out rounded-full ${
         active ? 'scale-x-100 opacity-100' : 'scale-x-0 opacity-0 group-hover:scale-x-100 group-hover:opacity-100'
       }`}
     />
